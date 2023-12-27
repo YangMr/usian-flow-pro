@@ -1,0 +1,26 @@
+{
+  "name": "usian-flow-pro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YangMr/usian-flow-pro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YangMr/usian-flow-pro/issues"
+  },
+  "homepage": "https://github.com/YangMr/usian-flow-pro#readme",
+  "dependencies": {
+    "uni-app-fetch": "^0.0.3"
+  }
+}
