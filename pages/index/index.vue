@@ -10,15 +10,15 @@
 </template>
 
 <script setup lang="ts">
-import { login } from '@/api/login'
+// import { login } from '@/api/login'
 
 const handleRequest = async () => {
-	const res = await login({
-		account: 'xbsj001',
-		password: '123456'
-	})
-
-	console.log('res=>', res)
+	uni.utils.toast()
+	// const res = await login({
+	// 	account: 'xbsj001',
+	// 	password: '123456'
+	// })
+	// console.log('res=>', res)
 }
 </script>
 

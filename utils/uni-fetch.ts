@@ -1,12 +1,13 @@
 // 导入createUniFetch请求方法
-import { createUniFetch } from 'uni-app-fetch';
+import { createUniFetch } from 'uni-app-fetch'
+
 // 导入请求数据返回的数据类型
-import { responseData } from './types/responseType';
+import { responseData } from './types/responseType'
 
 // #ifdef VUE3
 declare module 'vue' {
 	interface ComponentCustomProperties {
-		fetch: typeof uniFetch;
+		fetch: typeof uniFetch
 	}
 }
 // #endif
@@ -19,16 +20,16 @@ const uniFetch = createUniFetch<responseData>({
 		// 请求拦截器
 		request(options) {
 			// TODO 通过请求头发送token
-			return options;
+			return options
 		},
 		// 响应拦截器
 		response(result) {
 			// TODO token过期处理
 
 			// TODO 无感知登录
-			return result;
+			return result
 		}
 	}
-});
+})
 
-export default uniFetch;
+export default uniFetch
