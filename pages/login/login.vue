@@ -11,19 +11,6 @@
 		<!-- 登录表单 -->
 		<IMobile v-if="tabIndex === 0"></IMobile>
 		<IAccount v-else></IAccount>
-
-		<!-- {{ store.count }} -->
-
-		{{ a }}
-
-		<!-- {{ b }} -->
-
-		<button type="default" @click="store.increment">increment</button>
-		<button type="default" @click="store.decrement">decrement</button>
-
-		<button type="default" @click="handleRequest">index</button>
-		<button type="default" @click="change">change</button>
-		<button type="default" @click="reset">reset</button>
 	</view>
 </template>
 
@@ -32,44 +19,6 @@ import { ref, computed } from 'vue'
 import IAccount from './components/account.vue'
 import IMobile from './components/mobile.vue'
 import { metaType } from './types/type'
-import { storeToRefs } from 'pinia'
-
-import { useCounterStore } from '../../store/counter'
-import { useUserStore } from '../../store/user'
-
-const handleRequest = () => {
-	uni.navigateTo({
-		url: '/pages/index/index'
-	})
-}
-
-const store = useCounterStore()
-const userStore = useUserStore()
-// const { a, b } = storeToRefs(userStore)
-
-const a = userStore.geta()
-
-// const a = ref(userStore.a)
-// const b = ref(userStore.b)
-// const { a, b } = userStore
-
-// console.log('a', a.value)
-// console.log('b', b.value)
-
-const change = () => {
-	userStore.changeA()
-	userStore.changeB()
-
-	// a.value.name = 'rose'
-	// b.value = 11223
-	// userStore.a.value.name = 'rose'
-	// userStore.b.value = '456'
-}
-
-const reset = () => {
-	console.log('userStore', userStore)
-	userStore.$reset()
-}
 
 // 控制默认选中的状态 0手机号登录 1账号登录
 const tabIndex = ref<number>(0)

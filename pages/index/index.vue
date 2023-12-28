@@ -3,20 +3,11 @@
 		<image class="logo" src="/static/logo.png"></image>
 		<view class="text-area">
 			<text class="title">title</text>
-
-			{{ a.name }}
-
-			{{ b }}
 		</view>
 	</view>
 </template>
 
-<script setup lang="ts">
-import { useUserStore } from '../../store/user'
-const store = useUserStore()
-
-const { a, b } = store
-</script>
+<script setup lang="ts"></script>
 
 <style>
 .content {
