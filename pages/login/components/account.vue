@@ -11,47 +11,47 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
+import { formDataType } from './types/type'
+import { accountRules } from './rules/rule'
+import { login } from '@/api/login'
+import { useUserStore } from '@/store/user'
+const store = useUserStore()
 
 // 表单标识
 const form = ref()
 
-// 表示数据类型
-type formDataType = {
-	account: string
-	password: string
-}
-
-// 表单书记
+// 表单数据
 const formData = ref<formDataType>({
-	account: '',
-	password: ''
-})
-
-// 表单校验规则
-const accountRules = reactive({
-	account: {
-		rules: [
-			{ required: true, errorMessage: '请输入登录账号' },
-			{ pattern: '^[a-zA-Z0-9]{6,8}$', errorMessage: '登录账号格式不正确' }
-		]
-	},
-	password: {
-		rules: [
-			{ required: true, errorMessage: '请输入登录密码' },
-			{ pattern: '^\\d{6}', errorMessage: '登录密码格式不正确' }
-		]
-	}
+	account: 'xbsj001',
+	password: '123456'
 })
 
 // 账号登录方法
 const submitLogin = async () => {
 	try {
+		// 触发表单校验
 		await form.value.validate()
+
+		// 调用登录接口
+		const res = await login(formData.value)
+
+		// 如果登录失败, 进行信息提示
+		if (res.code !== 200) return uni.utils.toast('登录失败，请重试！')
+
+		// 登录成功,将token存储到pinia
+		store.token = res.data
+
+		// 登录成功之后,跳转到首页
+		uni.navigateTo({
+			url: '/pages/index/index'
+		})
 	} catch (e) {
 		console.log('error')
 	}
 }
+
+console.log('token', store.token)
 </script>
 
 <style lang="scss">

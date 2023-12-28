@@ -7,7 +7,22 @@
 	</view>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { taskList } from '@/api/task'
+const getTaskList = async () => {
+	try {
+		const res = await taskList({
+			page: 1,
+			pageSize: 5,
+			status: 1
+		})
+
+		console.log('res=>', res)
+	} catch (error) {}
+}
+
+getTaskList()
+</script>
 
 <style>
 .content {
