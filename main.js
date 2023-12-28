@@ -3,7 +3,7 @@ import App from './App'
 // 引入工具库
 import './utils/utils'
 
-// 引入 Pinia
+//1. 引入 Pinia
 import { createPinia } from 'pinia'
 
 // #ifndef VUE3
@@ -22,10 +22,12 @@ import { createSSRApp } from 'vue'
 export function createApp() {
 	const app = createSSRApp(App)
 
-	// 实例化Pinia
+	// 2. 实例化Pinia
 	const pinia = createPinia()
-	// 传递给项目应用
+
+	// 3. 传递给项目应用
 	app.use(pinia)
+
 	return {
 		app
 	}

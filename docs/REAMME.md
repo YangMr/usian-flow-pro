@@ -167,3 +167,29 @@ export type utilsType = {
 
 ```
 
+## 三、pinia的使用
+
+### 3.1 安装pinia
+
+```
+npm install pinia --save
+```
+
+### 3.2 引入pinia
+
+1. 在mian.js引入pinia
+2. 初始化pinia
+3. 将pinia注册到vue
+
+`main.js`
+
+```javascript
+//1. 引入 Pinia
+import { createPinia } from 'pinia'
+
+// 2. 实例化Pinia
+const pinia = createPinia()
+	
+// 3. 传递给项目应用
+app.use(pinia)
+```

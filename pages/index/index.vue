@@ -4,22 +4,18 @@
 		<view class="text-area">
 			<text class="title">title</text>
 
-			<button type="default" @click="handleRequest">登录</button>
+			{{ a.name }}
+
+			{{ b }}
 		</view>
 	</view>
 </template>
 
 <script setup lang="ts">
-// import { login } from '@/api/login'
+import { useUserStore } from '../../store/user'
+const store = useUserStore()
 
-const handleRequest = async () => {
-	uni.utils.toast()
-	// const res = await login({
-	// 	account: 'xbsj001',
-	// 	password: '123456'
-	// })
-	// console.log('res=>', res)
-}
+const { a, b } = store
 </script>
 
 <style>
